@@ -8,9 +8,9 @@ CREATE TABLE "peluquero" (
 );
 
 CREATE TABLE "comuna" (
-  "id_comuna" int,
-  "nombre" varchar(50),
-  PRIMARY KEY ("id_comuna")
+"id_comuna" int,
+"nombre" varchar(50),
+PRIMARY KEY ("id_comuna")
 );
 
 CREATE TABLE "peluqueria" (
@@ -172,4 +172,3 @@ CREATE TABLE "pago" (
       FOREIGN KEY ("id_detalle")
           REFERENCES "detalle"("id_detalle")
 );
-

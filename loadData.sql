@@ -1,26 +1,138 @@
--- Se asume una comuna de id 1
-INSERT INTO cliente (id_cliente, nombre, rut, apellido, sexo, id_comuna) VALUES
- (1,  'Diego',    '21432743-7', 'Ramos',     'M', 8),
- (2,  'Camila',   '19234567-3', 'Soto',      'F', 6),
- (3,  'Javier',   '20345678-5', 'Muñoz',     'M', 10),
- (4,  'Valentina','21345987-2', 'González',  'F', 19),
- (5,  'Matías',   '22456789-6', 'Fernández', 'M', 4),
- (6,  'Francisca','19432123-1', 'López',     'F', 3),
- (7,  'Sebastián','21498765-9', 'Castro',    'M', 8),
- (8,  'Antonia',  '22347890-4', 'Torres',    'F', 1),
- (9,  'Felipe',   '21456789-1', 'Martínez',  'M', 2),
- (10, 'Catalina', '20456789-0', 'Pérez',     'F', 2),
- (11, 'Cristóbal','22432123-7', 'Reyes',     'M', 7),
- (12, 'Fernanda', '19345678-2', 'Hernández', 'F', 7),
- (13, 'Ignacio',  '20234567-8', 'Vargas',    'M', 7),
- (14, 'Daniela',  '21234567-4', 'Silva',     'F', 10),
- (15, 'Tomás',    '22498765-6', 'Rojas',     'M', 10),
- (16, 'Josefa',   '21412345-0', 'Morales',   'F', 6),
- (17, 'Benjamín', '20398765-1', 'Gutiérrez', 'M', 6),
- (18, 'Constanza','21345678-3', 'Ramírez',   'F', 20),
- (19, 'Andrés',   '22312345-7', 'Pizarro',   'M', 9),
- (20, 'Isidora',  '19498765-9', 'Navarro',   'F', 1);
+INSERT INTO "peluquero" (id_peluquero, nombre, apellido, rut, nacionalidad) VALUES
+(1, 'Carlos', 'González', '12345678-9', 'Chilena'),
+(2, 'María', 'Pérez', '87654321-0', 'Argentina'),
+(3, 'Javier', 'López', '11223344-5', 'Peruana'),
+(4, 'Camila', 'Ramírez', '55667788-1', 'Chilena'),
+(5, 'Diego', 'Soto', '99887766-2', 'Colombiana'),
+(6, 'Valentina', 'Martínez', '33445566-7', 'Chilena'),
+(7, 'Andrés', 'Morales', '44556677-8', 'Venezolana'),
+(8, 'Fernanda', 'Castro', '22334455-6', 'Chilena'),
+(9, 'Ignacio', 'Herrera', '66778899-4', 'Uruguaya'),
+(10, 'Daniela', 'Torres', '77889900-1', 'Chilena'),
+(11, 'Tomás', 'Rojas', '88990011-3', 'Boliviana'),
+(12, 'Sofía', 'Araya', '99001122-5', 'Chilena'),
+(13, 'Felipe', 'Mendoza', '10111213-4', 'Mexicana'),
+(14, 'Josefa', 'Fuentes', '12131415-6', 'Chilena'),
+(15, 'Matías', 'Silva', '13141516-7', 'Ecuatoriana'),
+(16, 'Antonia', 'Cárdenas', '14151617-8', 'Chilena'),
+(17, 'Benjamín', 'Navarro', '15161718-9', 'Paraguaya'),
+(18, 'Constanza', 'Reyes', '16171819-0', 'Chilena'),
+(19, 'Sebastián', 'Vega', '17181920-1', 'Panameña'),
+(20, 'Isidora', 'Campos', '18192021-2', 'Chilena');
 
+-- PRODUCTOS
+INSERT INTO "producto" ("id_producto", "nombre_producto", "precio") VALUES
+(1, 'Shampoo', 5000),
+(2, 'Acondicionador', 4500),
+(3, 'Mascarilla', 7000),
+(4, 'Gel', 3500),
+(5, 'Spray', 4000),
+(6, 'Tinte Rojo', 12000),
+(7, 'Tinte Rubio', 15000),
+(8, 'Tinte Castaño', 11000),
+(9, 'Laca', 3000),
+(10, 'Cera', 2500),
+(11, 'Champú Seco', 5500),
+(12, 'Crema Hidratante', 6000),
+(13, 'Serum', 7500),
+(14, 'Protector Térmico', 5000),
+(15, 'Acrílicos', 9000),
+(16, 'Removedor Acrílicos', 4000),
+(17, 'Esmalte Rojo', 3000),
+(18, 'Esmalte Nude', 3200),
+(19, 'Esmalte Negro', 3500),
+(20, 'Toalla', 2000);
+
+-- SERVICIOS
+INSERT INTO "servicio" ("id_servicio", "nombre_servicio", "valor") VALUES
+(1, 'Corte de cabello', 15000),
+(2, 'Peinado', 12000),
+(3, 'Lavado', 8000),
+(4, 'Tinte', 20000),
+(5, 'Manicure', 10000),
+(6, 'Pedicure', 12000),
+(7, 'Tratamiento capilar', 18000),
+(8, 'Alisado', 25000),
+(9, 'Ondulado', 22000),
+(10, 'Masaje capilar', 9000),
+(11, 'Depilación cejas', 5000),
+(12, 'Depilación facial', 7000),
+(13, 'Peinado recogido', 15000),
+(14, 'Maquillaje', 20000),
+(15, 'Extensiones', 30000),
+(16, 'Tinte raíces', 18000),
+(17, 'Color completo', 25000),
+(18, 'Tratamiento keratina', 28000),
+(19, 'Laminado de pestañas', 15000),
+(20, 'Cejas y pestañas', 10000);
+
+-- DETALLES (para la cita con id 1)
+INSERT INTO "detalle" ("id_detalle", "id_cita", "id_producto", "id_servicio") VALUES
+(1, 1, 1, 1),
+(2, 1, 2, 2),
+(3, 1, 3, 3),
+(4, 1, 4, 4),
+(5, 1, 5, 5),
+(6, 1, 6, 6),
+(7, 1, 7, 7),
+(8, 1, 8, 8),
+(9, 1, 9, 9),
+(10, 1, 10, 10),
+(11, 1, 11, 11),
+(12, 1, 12, 12),
+(13, 1, 13, 13),
+(14, 1, 14, 14),
+(15, 1, 15, 15),
+(16, 1, 16, 16),
+(17, 1, 17, 17),
+(18, 1, 18, 18),
+(19, 1, 19, 19),
+(20, 1, 20, 20);
+
+-- PAGOS (uno por cada detalle)
+INSERT INTO "pago" ("id_pago", "valor", "id_detalle") VALUES
+(1, 20000, 1),
+(2, 25000, 2),
+(3, 15000, 3),
+(4, 30000, 4),
+(5, 12000, 5),
+(6, 14000, 6),
+(7, 18000, 7),
+(8, 22000, 8),
+(9, 10000, 9),
+(10, 9000, 10),
+(11, 11000, 11),
+(12, 12000, 12),
+(13, 13000, 13),
+(14, 14000, 14),
+(15, 15000, 15),
+(16, 16000, 16),
+(17, 17000, 17),
+(18, 18000, 18),
+(19, 19000, 19),
+(20, 20000, 20);
+
+-- Comunas
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (1, 'Santiago');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (2, 'Providencia');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (3, 'Las Condes');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (4, 'Ñuñoa');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (5, 'Puente Alto');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (6, 'Maipú');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (7, 'La Florida');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (8, 'Recoleta');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (9, 'Vitacura');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (10, 'Quilicura');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (11, 'Lo Barnechea');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (12, 'San Miguel');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (13, 'La Cisterna');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (14, 'Huechuraba');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (15, 'Peñalolén');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (16, 'Macul');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (17, 'San Joaquín');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (18, 'Lo Espejo');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (19, 'Pedro Aguirre Cerda');
+INSERT INTO "comuna" (id_comuna, nombre) VALUES (20, 'Independencia');
 
 INSERT INTO peluqueria (id_peluqueria, nombre, id_comuna, direccion) VALUES
 (1, 'DePelos', 1, 'Av. Departamental 123'),
@@ -32,7 +144,7 @@ INSERT INTO peluqueria (id_peluqueria, nombre, id_comuna, direccion) VALUES
 (7, 'Corte y Confianza', 7, 'Boulevard Alegre 404');
 
 --TABLA HORARIOS
-INSERT INTO horarios (id_horarios, fecha, hora, estado, id_peluqueria) VALUES
+INSERT INTO "horarios" (id_horarios, fecha, hora, estado, id_peluqueria) VALUES
 (1, '2025-08-31', '09:00:00', FALSE, 1),
 (2, '2025-08-31', '10:30:00', TRUE, 2),
 (3, '2025-08-31', '12:00:00', TRUE, 3);
@@ -264,120 +376,29 @@ INSERT INTO cita (id_cita, duracion, id_horarios, id_peluquero, id_cliente_pelu)
 (99, 60, 99, 99, 99),
 (100, 30, 100, 100, 100);
 
--- PRODUCTOS
-INSERT INTO "producto" ("id_producto", "nombre_producto", "precio") VALUES
-(1, 'Shampoo', 5000),
-(2, 'Acondicionador', 4500),
-(3, 'Mascarilla', 7000),
-(4, 'Gel', 3500),
-(5, 'Spray', 4000),
-(6, 'Tinte Rojo', 12000),
-(7, 'Tinte Rubio', 15000),
-(8, 'Tinte Castaño', 11000),
-(9, 'Laca', 3000),
-(10, 'Cera', 2500),
-(11, 'Champú Seco', 5500),
-(12, 'Crema Hidratante', 6000),
-(13, 'Serum', 7500),
-(14, 'Protector Térmico', 5000),
-(15, 'Acrílicos', 9000),
-(16, 'Removedor Acrílicos', 4000),
-(17, 'Esmalte Rojo', 3000),
-(18, 'Esmalte Nude', 3200),
-(19, 'Esmalte Negro', 3500),
-(20, 'Toalla', 2000);
-
--- SERVICIOS
-INSERT INTO "servicio" ("id_servicio", "nombre_servicio", "valor") VALUES
-(1, 'Corte de cabello', 15000),
-(2, 'Peinado', 12000),
-(3, 'Lavado', 8000),
-(4, 'Tinte', 20000),
-(5, 'Manicure', 10000),
-(6, 'Pedicure', 12000),
-(7, 'Tratamiento capilar', 18000),
-(8, 'Alisado', 25000),
-(9, 'Ondulado', 22000),
-(10, 'Masaje capilar', 9000),
-(11, 'Depilación cejas', 5000),
-(12, 'Depilación facial', 7000),
-(13, 'Peinado recogido', 15000),
-(14, 'Maquillaje', 20000),
-(15, 'Extensiones', 30000),
-(16, 'Tinte raíces', 18000),
-(17, 'Color completo', 25000),
-(18, 'Tratamiento keratina', 28000),
-(19, 'Laminado de pestañas', 15000),
-(20, 'Cejas y pestañas', 10000);
-
--- DETALLES (para la cita con id 1)
-INSERT INTO "detalle" ("id_detalle", "id_cita", "id_producto", "id_servicio") VALUES
-(1, 1, 1, 1),
-(2, 1, 2, 2),
-(3, 1, 3, 3),
-(4, 1, 4, 4),
-(5, 1, 5, 5),
-(6, 1, 6, 6),
-(7, 1, 7, 7),
-(8, 1, 8, 8),
-(9, 1, 9, 9),
-(10, 1, 10, 10),
-(11, 1, 11, 11),
-(12, 1, 12, 12),
-(13, 1, 13, 13),
-(14, 1, 14, 14),
-(15, 1, 15, 15),
-(16, 1, 16, 16),
-(17, 1, 17, 17),
-(18, 1, 18, 18),
-(19, 1, 19, 19),
-(20, 1, 20, 20);
-
--- PAGOS (uno por cada detalle)
-INSERT INTO "pago" ("id_pago", "valor", "id_detalle") VALUES
-(1, 20000, 1),
-(2, 25000, 2),
-(3, 15000, 3),
-(4, 30000, 4),
-(5, 12000, 5),
-(6, 14000, 6),
-(7, 18000, 7),
-(8, 22000, 8),
-(9, 10000, 9),
-(10, 9000, 10),
-(11, 11000, 11),
-(12, 12000, 12),
-(13, 13000, 13),
-(14, 14000, 14),
-(15, 15000, 15),
-(16, 16000, 16),
-(17, 17000, 17),
-(18, 18000, 18),
-(19, 19000, 19),
-(20, 20000, 20);
-
--- Comunas
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (1, 'Santiago');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (2, 'Providencia');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (3, 'Las Condes');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (4, 'Ñuñoa');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (5, 'Puente Alto');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (6, 'Maipú');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (7, 'La Florida');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (8, 'Recoleta');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (9, 'Vitacura');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (10, 'Quilicura');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (11, 'Lo Barnechea');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (12, 'San Miguel');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (13, 'La Cisterna');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (14, 'Huechuraba');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (15, 'Peñalolén');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (16, 'Macul');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (17, 'San Joaquín');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (18, 'Lo Espejo');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (19, 'Pedro Aguirre Cerda');
-INSERT INTO "comuna" (id_comuna, nombre) VALUES (20, 'Independencia');
-
+-- Se asume una comuna de id 1
+INSERT INTO cliente (id_cliente, nombre, rut, apellido, sexo, id_comuna) VALUES
+ (1,  'Diego',    '21432743-7', 'Ramos',     'M', 8),
+ (2,  'Camila',   '19234567-3', 'Soto',      'F', 6),
+ (3,  'Javier',   '20345678-5', 'Muñoz',     'M', 10),
+ (4,  'Valentina','21345987-2', 'González',  'F', 19),
+ (5,  'Matías',   '22456789-6', 'Fernández', 'M', 4),
+ (6,  'Francisca','19432123-1', 'López',     'F', 3),
+ (7,  'Sebastián','21498765-9', 'Castro',    'M', 8),
+ (8,  'Antonia',  '22347890-4', 'Torres',    'F', 1),
+ (9,  'Felipe',   '21456789-1', 'Martínez',  'M', 2),
+ (10, 'Catalina', '20456789-0', 'Pérez',     'F', 2),
+ (11, 'Cristóbal','22432123-7', 'Reyes',     'M', 7),
+ (12, 'Fernanda', '19345678-2', 'Hernández', 'F', 7),
+ (13, 'Ignacio',  '20234567-8', 'Vargas',    'M', 7),
+ (14, 'Daniela',  '21234567-4', 'Silva',     'F', 10),
+ (15, 'Tomás',    '22498765-6', 'Rojas',     'M', 10),
+ (16, 'Josefa',   '21412345-0', 'Morales',   'F', 6),
+ (17, 'Benjamín', '20398765-1', 'Gutiérrez', 'M', 6),
+ (18, 'Constanza','21345678-3', 'Ramírez',   'F', 20),
+ (19, 'Andrés',   '22312345-7', 'Pizarro',   'M', 9),
+ (20, 'Isidora',  '19498765-9', 'Navarro',   'F', 1);
+ 
 -- Empleados
 INSERT INTO "empleado" (id_empleado, id_peluqueria, id_peluquero, id_comuna) 
 VALUES
