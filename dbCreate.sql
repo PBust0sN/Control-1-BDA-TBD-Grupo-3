@@ -72,7 +72,6 @@ CREATE TABLE "horarios" (
   CONSTRAINT "FK_horarios_id_peluqueria"
       FOREIGN KEY ("id_peluqueria")
           REFERENCES "peluqueria"("id_peluqueria")
-
 );
 
 CREATE TABLE "cliente" (
