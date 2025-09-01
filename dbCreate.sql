@@ -8,9 +8,9 @@ CREATE TABLE "peluquero" (
 );
 
 CREATE TABLE "comuna" (
-  "id_comuna" int,
-  "nombre" varchar(50),
-  PRIMARY KEY ("id_comuna")
+"id_comuna" int,
+"nombre" varchar(50),
+PRIMARY KEY ("id_comuna")
 );
 
 CREATE TABLE "peluqueria" (
@@ -72,7 +72,6 @@ CREATE TABLE "horarios" (
   CONSTRAINT "FK_horarios_id_peluqueria"
       FOREIGN KEY ("id_peluqueria")
           REFERENCES "peluqueria"("id_peluqueria")
-
 );
 
 CREATE TABLE "cliente" (
@@ -126,16 +125,8 @@ CREATE TABLE "producto" (
     PRIMARY KEY ("id_producto")
 );
 
-CREATE TABLE "detalle" (
-   "id_detalle" int,
-   "id_cita" int,
-   PRIMARY KEY ("id_detalle"),
-   CONSTRAINT "FK_detalle_id_cita"
-       FOREIGN KEY ("id_cita")
-           REFERENCES "cita"("id_cita")
-);
 
-CREATE TABLE "producto" (
+CREATE TABLE "detalle" (
     "id_detalle" int,
     "id_cita" int,
     "id_producto" int,
@@ -152,17 +143,6 @@ CREATE TABLE "producto" (
         REFERENCES "producto"("id_producto")
 );
 
-CREATE TABLE "servicio" (
-  "id_servicio" int,
-  "nombre_servicio" varchar(50),
-  "valor" int,
-  "id_detalle" int,
-  PRIMARY KEY ("id_servicio"),
-  CONSTRAINT "FK_servicio_id_detalle"
-      FOREIGN KEY ("id_detalle")
-          REFERENCES "detalle"("id_detalle")
-);
-
 
 CREATE TABLE "pago" (
   "id_pago" int,
@@ -173,4 +153,3 @@ CREATE TABLE "pago" (
       FOREIGN KEY ("id_detalle")
           REFERENCES "detalle"("id_detalle")
 );
-
