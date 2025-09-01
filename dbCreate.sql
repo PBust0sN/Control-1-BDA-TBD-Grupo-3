@@ -125,16 +125,8 @@ CREATE TABLE "producto" (
     PRIMARY KEY ("id_producto")
 );
 
-CREATE TABLE "detalle" (
-   "id_detalle" int,
-   "id_cita" int,
-   PRIMARY KEY ("id_detalle"),
-   CONSTRAINT "FK_detalle_id_cita"
-       FOREIGN KEY ("id_cita")
-           REFERENCES "cita"("id_cita")
-);
 
-CREATE TABLE "producto" (
+CREATE TABLE "detalle" (
     "id_detalle" int,
     "id_cita" int,
     "id_producto" int,
@@ -149,17 +141,6 @@ CREATE TABLE "producto" (
     CONSTRAINT "FK_detalle_id_producto"
       FOREIGN KEY ("id_producto")
         REFERENCES "producto"("id_producto")
-);
-
-CREATE TABLE "servicio" (
-  "id_servicio" int,
-  "nombre_servicio" varchar(50),
-  "valor" int,
-  "id_detalle" int,
-  PRIMARY KEY ("id_servicio"),
-  CONSTRAINT "FK_servicio_id_detalle"
-      FOREIGN KEY ("id_detalle")
-          REFERENCES "detalle"("id_detalle")
 );
 
 
