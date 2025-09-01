@@ -54,12 +54,23 @@ CREATE TABLE "sueldo" (
       REFERENCES "empleado"("id_empleado")
 );
 
+CREATE TABLE "servicio" (
+  "id_servicio" int,
+  "nombre_servicio" varchar(50),
+  "valor" int,
+  PRIMARY KEY ("id_servicio")
+);
+
 CREATE TABLE "horarios" (
   "id_horarios" int,
   "fecha" date,
   "hora" time,
   "estado" bool,
-  PRIMARY KEY ("id_horarios")
+  "id_peluqueria" int,
+  PRIMARY KEY ("id_horarios"),
+  CONSTRAINT "FK_horarios_id_peluqueria"
+    FOREIGN KEY ("id_peluqueria")
+      REFERENCES "peluqueria"("id_peluqueria")
 );
 
 CREATE TABLE "cliente" (
@@ -106,24 +117,28 @@ CREATE TABLE "cita" (
       REFERENCES "cliente_pelu"("id_cliente_pelu")
 );
 
-CREATE TABLE "detalle" (
-  "id_detalle" int,
-  "id_cita" int,
-  PRIMARY KEY ("id_detalle"),
-  CONSTRAINT "FK_detalle_id_cita"
-    FOREIGN KEY ("id_cita")
-      REFERENCES "cita"("id_cita")
-);
-
 CREATE TABLE "producto" (
   "id_producto" int,
   "nombre_producto" varchar(50),
   "precio" int,
+  PRIMARY KEY ("id_producto")
+);
+
+CREATE TABLE "detalle" (
   "id_detalle" int,
-  PRIMARY KEY ("id_producto"),
-  CONSTRAINT "FK_producto_id_detalle"
-    FOREIGN KEY ("id_detalle")
-      REFERENCES "detalle"("id_detalle")
+  "id_cita" int,
+  "id_producto" int,
+  "id_servicio" int,
+  PRIMARY KEY ("id_detalle"),
+  CONSTRAINT "FK_detalle_id_servicio"
+    FOREIGN KEY ("id_servicio")
+      REFERENCES "servicio"("id_servicio"),
+  CONSTRAINT "FK_detalle_id_cita"
+    FOREIGN KEY ("id_cita")
+      REFERENCES "cita"("id_cita"),
+  CONSTRAINT "FK_detalle_id_producto"
+    FOREIGN KEY ("id_producto")
+      REFERENCES "producto"("id_producto")
 );
 
 CREATE TABLE "pago" (
@@ -135,16 +150,4 @@ CREATE TABLE "pago" (
     FOREIGN KEY ("id_detalle")
       REFERENCES "detalle"("id_detalle")
 );
-
-CREATE TABLE "servicio" (
-  "id_servicio" int,
-  "nombre_servicio" varchar(50),
-  "valor" int,
-  "id_detalle" int,
-  PRIMARY KEY ("id_servicio"),
-  CONSTRAINT "FK_servicio_id_detalle"
-    FOREIGN KEY ("id_detalle")
-      REFERENCES "detalle"("id_detalle")
-);
-
 
