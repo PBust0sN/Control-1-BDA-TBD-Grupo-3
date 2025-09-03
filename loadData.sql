@@ -64,7 +64,8 @@ INSERT INTO servicio ("id_servicio", "nombre_servicio", "valor") VALUES
 (17, 'Color completo', 25000),
 (18, 'Tratamiento keratina', 28000),
 (19, 'Laminado de pestañas', 15000),
-(20, 'Cejas y pestañas', 10000);
+(20, 'Cejas y pestañas', 10000),
+(21, 'Corte de barba', 10000);
 
 -- Comunas
 INSERT INTO "comuna" (id_comuna, nombre) VALUES
@@ -375,7 +376,8 @@ INSERT INTO detalle ("id_detalle", "id_cita", "id_producto", "id_servicio") VALU
 (17, 17, 17, 17),
 (18, 18, 18, 18),
 (19, 19, 19, 19),
-(20, 20, 20, 20);
+(20, 20, 20, 20),
+(21, 21, 20, 21);
 
 -- PAGOS (uno por cada detalle)
 INSERT INTO pago ("id_pago", "valor", "id_detalle") VALUES
