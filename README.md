@@ -10,3 +10,4 @@ Y a continuación esta el esquema hecho por el grupo
 <h3> Cambios Realizados </h3>
 
 - Los precios son tratados en CLP, no se justifica uso de double o float
+
